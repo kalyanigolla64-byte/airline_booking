@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Book Ticket | Kalyani Airlines</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="logo">✈ KALYANI <span>AIRLINES</span></div>
+<nav><a href="index.html">Home</a><a href="destinations.html">Destinations</a><a class="active" href="booking.html">Book Flight</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Login</a></nav></header>
+
+<section class="page-head"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h1>Book Your Ticket</h1><p>Follow four simple steps to choose your flight, enter passenger details, select your class and complete the demo payment.</p></section>
+
+<section class="booking-steps">
+<div class="step active"><span>1</span><b>Select Flight</b><small>Route & schedule</small></div>
+<div class="step"><span>2</span><b>Passenger Details</b><small>Travelers</small></div>
+<div class="step"><span>3</span><b>Choose Class</b><small>Economy / Business</small></div>
+<div class="step"><span>4</span><b>Payment</b><small>Secure demo payment</small></div>
+</section>
+
+<section class="booking-box">
+<div class="booking-panel active-panel" id="step1">
+<h2>Step 1 — Select Your Flight</h2>
+<p class="muted">Choose your route, travel date and preferred schedule.</p>
+<div class="form-grid">
+<label>From<select id="from" required><option>Hyderabad (HYD)</option><option>Delhi (DEL)</option><option>Mumbai (BOM)</option><option>Bengaluru (BLR)</option><option>Chennai (MAA)</option></select></label>
+<label>To<select id="to" required><option>Dubai (DXB)</option><option>Singapore (SIN)</option><option>Paris (CDG)</option><option>Tokyo (HND)</option><option>New York (JFK)</option></select></label>
+<label>Departure Date<input id="date" type="date" required></label>
+<label>No. of Passengers<input id="passengers" type="number" min="1" max="9" value="1" required></label>
+</div>
+<div class="flight-options">
+<label class="flight-option"><input type="radio" name="flight" value="18499" checked><div><b>KA 101</b><span>06:15 AM → 08:45 AM</span><small>4h 00m · Non-stop</small></div><strong>₹18,499</strong></label>
+<label class="flight-option"><input type="radio" name="flight" value="21999"><div><b>KA 118</b><span>02:30 PM → 05:10 PM</span><small>4h 10m · Non-stop</small></div><strong>₹21,999</strong></label>
+</div>
+<button class="btn next-btn" data-next="2">Continue to Passenger Details →</button>
+</div>
+
+<div class="booking-panel" id="step2">
+<h2>Step 2 — Enter Passenger Details</h2>
+<p class="muted">Enter the details of the main passenger for this demo booking.</p>
+<div class="form-grid">
+<label>Full Name<input id="fullName" type="text" placeholder="Enter full name" required></label>
+<label>Email Address<input id="email" type="email" placeholder="name@example.com" required></label>
+<label>Mobile Number<input id="mobile" type="tel" placeholder="+91 90000 00000" required></label>
+<label>Age<input id="age" type="number" min="1" max="120" placeholder="Age" required></label>
+</div>
+<div class="passenger-note">👥 <b>Passengers:</b> <span id="passengerCount">1</span> · Additional passenger details would normally be collected during a real booking.</div>
+<button class="back-btn" data-back="1">← Back</button><button class="btn next-btn" data-next="3">Continue to Class →</button>
+</div>
+
+<div class="booking-panel" id="step3">
+<h2>Step 3 — Select Travel Class</h2>
+<p class="muted">Choose the cabin that suits your journey.</p>
+<div class="class-options">
+<label class="class-card"><input type="radio" name="class" value="Economy" data-mult="1" checked><h3>Economy Class</h3><p>Comfortable seating, cabin baggage and complimentary onboard service.</p><b>Standard fare</b></label>
+<label class="class-card"><input type="radio" name="class" value="Business" data-mult="2.35"><h3>Business Class</h3><p>Extra legroom, priority service and a more relaxed travel experience.</p><b>Premium fare</b></label>
+</div>
+<div class="fare-summary"><span>Estimated total</span><strong id="classTotal">₹18,499</strong></div>
+<button class="back-btn" data-back="2">← Back</button><button class="btn next-btn" data-next="4">Continue to Payment →</button>
+</div>
+
+<div class="booking-panel" id="step4">
+<h2>Step 4 — Payment</h2>
+<p class="muted">This is a front-end demonstration. No real payment will be processed.</p>
+<div class="payment-methods">
+<label><input type="radio" name="payment" checked> 💳 Card</label>
+<label><input type="radio" name="payment"> UPI</label>
+<label><input type="radio" name="payment"> Net Banking</label>
+</div>
+<div class="form-grid">
+<label>Cardholder Name<input placeholder="Name on card"></label>
+<label>Card Number<input placeholder="XXXX XXXX XXXX XXXX" maxlength="19"></label>
+<label>Expiry Date<input placeholder="MM/YY"></label>
+<label>CVV<input type="password" placeholder="***" maxlength="3"></label>
+</div>
+<div class="fare-summary"><span>Total to Pay</span><strong id="paymentTotal">₹18,499</strong></div>
+<button class="back-btn" data-back="3">← Back</button><button class="btn" id="payBtn">Pay & Confirm Ticket</button>
+<div id="confirmation" class="confirmation"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><p class="eyebrow">SAMPLE FARES</p><h2>Popular Routes</h2></div>
+<div class="flight-table-wrap"><table class="flight-table"><thead><tr><th>Flight</th><th>Route</th><th>Departure</th><th>Arrival</th><th>Duration</th><th>Economy</th><th>Business</th></tr></thead>
+<tbody><tr><td>KA 101</td><td>Hyderabad → Dubai</td><td>06:15 AM</td><td>08:45 AM</td><td>4h 00m</td><td>₹18,499</td><td>₹42,999</td></tr>
+<tr><td>KA 205</td><td>Delhi → Paris</td><td>09:30 PM</td><td>03:10 AM +1</td><td>10h 10m</td><td>₹49,999</td><td>₹1,14,999</td></tr>
+<tr><td>KA 310</td><td>Mumbai → Singapore</td><td>11:20 AM</td><td>07:10 PM</td><td>5h 20m</td><td>₹22,499</td><td>₹51,999</td></tr>
+<tr><td>KA 412</td><td>Bengaluru → Tokyo</td><td>08:40 PM</td><td>07:15 AM +1</td><td>7h 05m</td><td>₹39,999</td><td>₹89,999</td></tr>
+<tr><td>KA 520</td><td>Chennai → New York</td><td>01:30 AM</td><td>01:20 PM</td><td>19h 20m</td><td>₹68,999</td><td>₹1,49,999</td></tr></tbody></table></div>
+</section>
+<footer><p>© 2026 Kalyani Airlines · A student project website</p></footer>
+<script src="script.js"></script></body></html>
